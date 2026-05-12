@@ -1,24 +1,84 @@
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f2f2f2;
+    background: linear-gradient(to right, #eef2f7, #d9e7ff);
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
+/* Header */
 h1 {
-    color: blue;
+    color: #003366;
+    margin-top: 30px;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Navigation Bar */
 nav {
-    margin: 20px;
+    background-color: #00509e;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
-    margin: 10px;
+    margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: blue;
+    color: yellow;
+    letter-spacing: 1px;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Group Members List */
+.members {
+    list-style: none;
+    padding: 0;
+}
+
+.members li {
+    background-color: #e8f0fe;
+    margin: 12px auto;
+    padding: 12px;
+    width: 50%;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.members li:hover {
+    background-color: #cfe2ff;
+    transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    background-color: #003366;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
 }
