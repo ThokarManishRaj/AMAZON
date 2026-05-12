@@ -1,53 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cloud Website</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Cloud Computing Lab</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px 24px;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(14,165,233,.18) 0%, transparent 70%),
+        #f0f7ff;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(14,165,233,.07) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(14,165,233,.12);
+      color: var(--sky-deep);
+      border: 1px solid rgba(14,165,233,.3);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(42px, 7vw, 82px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      color: var(--ink);
+      max-width: 800px;
+      margin: 0 auto 24px;
+      animation: fadeUp .7s .1s ease both;
+    }
+    .hero h2 span {
+      color: var(--sky);
+      position: relative;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+      font-weight: 300;
+      animation: fadeUp .7s .2s ease both;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp .7s .3s ease both;
+    }
 
+    /* ── STATS ── */
+    .stats-bar {
+      background: var(--ink);
+      padding: 28px 56px;
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--sky);
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── FEATURES ── */
+    .features-section {
+      padding: 96px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 48px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      transition: all .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sky), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+    .feature-card:hover::after { transform: scaleX(1); }
+    .feature-icon {
+      width: 52px; height: 52px;
+      background: var(--sky-pale);
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--ink) 0%, #0c2044 100%);
+      padding: 80px 40px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+      letter-spacing: -1px;
+    }
+    .cta-section p { color: rgba(255,255,255,.6); font-size: 17px; margin-bottom: 36px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
 <body>
 
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome to My Cloud Website</h1>
-        <p>Your Gateway to Modern Cloud Hosting</p>
-    </header>
-
-    <!-- Navigation Menu -->
+  <header>
+    <div class="brand">
+      <h1>☁ Cloud Lab</h1>
+      <span class="tagline">Kyungdong University</span>
+    </div>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
+  </header>
 
-    <!-- Main Content -->
-    <div class="container">
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-badge">✦ Hosted on GitHub Pages</div>
+        <h2>Your Gateway to<br/><span>Modern Cloud</span></h2>
+        <p>A hands-on cloud computing lab exploring hosting, virtualization, and deployment on real-world cloud platforms.</p>
+        <div class="hero-btns">
+          <a href="about.html" class="btn">Explore the Lab →</a>
+          <a href="contact.html" class="btn btn-outline">Meet the Team</a>
+        </div>
+      </div>
+    </section>
 
-        <h2>About This Website</h2>
-
-        <p>
-            This website is hosted on the GitHub cloud platform.
-            It demonstrates a simple cloud-based web project using
-            HTML and CSS.
-        </p>
-
-        <p>
-            The project includes multiple webpages connected through
-            navigation links and styled with a responsive design.
-        </p>
-
-        <button class="btn">Explore More</button>
-
+    <!-- STATS -->
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Live Pages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Team Members</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Cloud Hosted</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2026</div>
+        <div class="stat-label">Project Year</div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 My Cloud Website | Hosted on GitHub</p>
-    </footer>
+    <!-- FEATURES -->
+    <section class="features-section">
+      <div class="section-label">What We Cover</div>
+      <div class="section-title">Practical Cloud Skills</div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">☁</div>
+          <h3>Cloud Fundamentals</h3>
+          <p>Understand IaaS, PaaS, and SaaS layers, data centers, and how cloud infrastructure powers modern applications.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>Hands-On Deployment</h3>
+          <p>Deploy real websites and applications to cloud platforms with live experiments and step-by-step workflows.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Web Hosting</h3>
+          <p>Learn how static and dynamic sites are hosted, served globally via CDN, and scaled to handle real traffic.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Security Basics</h3>
+          <p>Explore cloud security principles including HTTPS, access control, and protecting deployed applications.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Virtualization</h3>
+          <p>See how virtual machines and containers like Docker abstract hardware and power modern cloud infrastructure.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Monitoring & Scaling</h3>
+          <p>Understand how cloud apps are monitored, auto-scaled, and optimized for performance and cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2>Ready to Dive In?</h2>
+      <p>Explore the lab details or get in touch with our team.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="about.html" class="btn">Learn More</a>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 <span>Cloud Computing Practical Lab</span> · Kyungdong University · Hosted on GitHub</p>
+  </footer>
 
 </body>
-
 </html>
