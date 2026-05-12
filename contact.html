@@ -1,14 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #00509e;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: yellow;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        .members {
+            list-style: none;
+            padding: 0;
+        }
+
+        .members li {
+            background-color: #e8f0fe;
+            margin: 10px auto;
+            padding: 10px;
+            width: 50%;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .contact {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        footer {
+            margin-top: 30px;
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Contact Page</h1>
+    <header>
+        <h1>Kyungdong University</h1>
+        <p>Group Project Contact Page</p>
+    </header>
 
     <nav>
         <a href="index.html">Home</a>
@@ -16,19 +92,34 @@
         <a href="contact.html">Contact</a>
     </nav>
 
-    <h2>Information</h2>
-    <p>Kyungdong University</p>
+    <div class="container">
 
-    <h2>Group Members</h2>
-    <ul>
-        <li>Chaudhari Nabin</li>
-        <li>Thokar Manish Raj</li>
-        <li>Tamang Milan</li>
-        <li>Shrestha Kabita</li>
-        <li>Tamang Solan</li>
-    </ul>
+        <h2>Project Information</h2>
+        <p>
+            This webpage is created for our university group project.
+            It contains the details of our group members and contact information.
+        </p>
 
-    <p>Email: student@email.com</p>
+        <h2>Group Members</h2>
+
+        <ul class="members">
+            <li>Chaudhari Nabin</li>
+            <li>Thokar Manish Raj</li>
+            <li>Tamang Milan</li>
+            <li>Shrestha Kabita</li>
+            <li>Tamang Solan</li>
+        </ul>
+
+        <div class="contact">
+            <h2>Contact Information</h2>
+            <p>Email: student@email.com</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Kyungdong University | All Rights Reserved</p>
+    </footer>
 
 </body>
 
